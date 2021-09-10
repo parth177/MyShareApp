@@ -1,0 +1,1 @@
+-keep class com.abc.mxcloneshare.base.App { <init>(); }

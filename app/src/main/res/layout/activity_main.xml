@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="false"
+        android:orientation="vertical"
+        android:weightSum="100"
+        tools:context="com.abc.mxcloneshare.activity.MainActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+            <com.genonbeta.android.framework.widget.PowerfulActionMode
+                android:id="@+id/content_powerful_action_mode"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:visibility="gone" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="20"
+            android:background="@color/colorPrimary">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="30">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <ImageView
+                            android:id="@+id/layout_profile_picture_image_default"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:tint="@android:color/white" />
+
+                        <ImageView
+                            android:id="@+id/layout_profile_picture_image_preferred"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="?roundSelector"
+                            app:tint="@android:color/white" />
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="end|bottom"
+                            android:background="?rippleBackground"
+                            android:padding="3dp"
+                            app:srcCompat="@drawable/ic_edit_white_24dp"
+                            app:tint="@android:color/white"
+                            tools:visibility="gone" />
+
+                    </FrameLayout>
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/header_default_device_container"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+
+                    android:layout_weight="60"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/header_default_device_name_text"
+                        style="@style/TextAppearance.Primary.Big.SingleLine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_unknown"
+                        android:textColor="#fff" />
+
+                    <TextView
+                        android:id="@+id/header_default_device_version_text"
+                        style="@style/TextAppearance.Secondary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorDivider" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/content_main"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="56"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <fragment
+                android:id="@+id/activitiy_home_fragment"
+                android:name="com.abc.mxcloneshare.fragment.HomeFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:layout="@layout/fragment_home" />
+
+        </RelativeLayout>
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/admob_adview"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="8"
+            android:background="@color/colorPrimary"
+            app:adSize="BANNER"
+            app:adUnitId="@string/banner_ad_unit">
+
+        </com.google.android.gms.ads.AdView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:background="#325bd1"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="50">
+
+                <LinearLayout
+                    android:id="@+id/history"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/image1"
+                        android:layout_width="25dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/ic_history" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/image1"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="1dp"
+                        android:gravity="center"
+                        android:text="History"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="50">
+
+
+                <LinearLayout
+                    android:id="@+id/invite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/image2"
+                        android:layout_width="25dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/ic_invitation" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/image2"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="1dp"
+                        android:gravity="center"
+                        android:text="Invite"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        style="?navigationViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:visibility="visible"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_main" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
